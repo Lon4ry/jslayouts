@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  font-family: "Arial";
+  min-width: 900px;
+}
+
+div {
+  text-align: center;
+}
+
+.days {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+  width: 900px;
+}
+
+/* Этот класс должен быть у каждого квадрата */
+.day {
+  width: 100px;
+  height: 100px;
+  font-size: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Класс для дня недели */
+.weekday {
+  background-color: pink;
+}
+
+/* Класс для дней месяца */
+.current {
+  background-color: lightblue;
+}
+
+/* Класс для праздничных дней */
+.holiday {
+  background-color: greenyellow;
+}
+
+/* Класс для дат из следующего и предыдущего месяцев */
+.other {
+  background-color: lightgray;
+}
