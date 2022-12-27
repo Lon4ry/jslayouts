@@ -8,9 +8,9 @@ let triesLeft = 5;
 
 let notEnoughMoney = `
         <div class="Withdraw">
-        <p>Не удалось снять деньги, недостаточно средств</p>
-        <button id="btnNotEnoughMoney">Ввести другую сумму</button>
+            <p class="Red">Не удалось снять деньги, недостаточно средств</p>
         </div>
+        <button id="btnNotEnoughMoney">Ввести другую сумму</button>
 `;
 
 let anotherTry = `
@@ -24,9 +24,10 @@ let anotherTry = `
 `;
 
 btnWithdraw.addEventListener("click", function() {
-    money -= Number(inpWithdraw.value);
-    if (money>=0)
+    if (money >= inpWithdraw.value) {
+        money = Math.round((money - inpWithdraw.value)*100)/100;
         balance.textContent = `Баланс: ${money} RUB`;
+    }
     else {
         withdraw.innerHTML = notEnoughMoney + `<p class="Withdraw">Осталось попыток: ${triesLeft}</p>`;
         let btnNotEnoughMoney = document.getElementById("btnNotEnoughMoney");
@@ -38,12 +39,13 @@ btnWithdraw.addEventListener("click", function() {
             inpWithdraw = document.getElementById("inpWithdraw");
             btnWithdraw = document.getElementById("btnWithdraw");
             btnWithdraw.addEventListener("click", function() {
-                money -= Number(inpWithdraw.value);
-                if (money>=0)
+                if (money >= inpWithdraw.value) {
+                    money = Math.round((money - inpWithdraw.value)*100)/100;
                     balance.textContent = `Баланс: ${money} RUB`;
+                }
                 else {
                     withdraw.innerHTML = notEnoughMoney + `<p class="Withdraw">Осталось попыток: ${triesLeft}</p>`;
-                    let btnNotEnoughMoney = document.getElementById("btnNotEnoughMoney");
+                    btnNotEnoughMoney = document.getElementById("btnNotEnoughMoney");
                     btnNotEnoughMoney.addEventListener("click", function() {
                         triesLeft -= 1;
                         withdraw.innerHTML = anotherTry;
@@ -52,12 +54,13 @@ btnWithdraw.addEventListener("click", function() {
                         inpWithdraw = document.getElementById("inpWithdraw");
                         btnWithdraw = document.getElementById("btnWithdraw");
                         btnWithdraw.addEventListener("click", function() {
-                            money -= Number(inpWithdraw.value);
-                            if (money>=0)
+                            if (money >= inpWithdraw.value) {
+                                money = Math.round((money - inpWithdraw.value)*100)/100;
                                 balance.textContent = `Баланс: ${money} RUB`;
+                            }
                             else {
                                 withdraw.innerHTML = notEnoughMoney + `<p class="Withdraw">Осталось попыток: ${triesLeft}</p>`;
-                                let btnNotEnoughMoney = document.getElementById("btnNotEnoughMoney");
+                                btnNotEnoughMoney = document.getElementById("btnNotEnoughMoney");
                                 btnNotEnoughMoney.addEventListener("click", function() {
                                     triesLeft -= 1;
                                     withdraw.innerHTML = anotherTry;
@@ -66,12 +69,13 @@ btnWithdraw.addEventListener("click", function() {
                                     inpWithdraw = document.getElementById("inpWithdraw");
                                     btnWithdraw = document.getElementById("btnWithdraw");
                                     btnWithdraw.addEventListener("click", function() {
-                                        money -= Number(inpWithdraw.value);
-                                        if (money>=0)
+                                        if (money >= inpWithdraw.value) {
+                                            money = Math.round((money - inpWithdraw.value)*100)/100;
                                             balance.textContent = `Баланс: ${money} RUB`;
+                                        }
                                         else {
                                             withdraw.innerHTML = notEnoughMoney + `<p class="Withdraw">Осталось попыток: ${triesLeft}</p>`;
-                                            let btnNotEnoughMoney = document.getElementById("btnNotEnoughMoney");
+                                            btnNotEnoughMoney = document.getElementById("btnNotEnoughMoney");
                                             btnNotEnoughMoney.addEventListener("click", function() {
                                                 triesLeft -= 1;
                                                 withdraw.innerHTML = anotherTry;
@@ -80,12 +84,13 @@ btnWithdraw.addEventListener("click", function() {
                                                 inpWithdraw = document.getElementById("inpWithdraw");
                                                 btnWithdraw = document.getElementById("btnWithdraw");
                                                 btnWithdraw.addEventListener("click", function() {
-                                                    money -= Number(inpWithdraw.value);
-                                                    if (money>=0)
+                                                    if (money >= inpWithdraw.value) {
+                                                        money = Math.round((money - inpWithdraw.value)*100)/100;
                                                         balance.textContent = `Баланс: ${money} RUB`;
+                                                    }
                                                     else {
                                                         withdraw.innerHTML = notEnoughMoney + `<p class="Withdraw">Осталось попыток: ${triesLeft}</p>`;
-                                                        let btnNotEnoughMoney = document.getElementById("btnNotEnoughMoney");
+                                                        btnNotEnoughMoney = document.getElementById("btnNotEnoughMoney");
                                                         btnNotEnoughMoney.addEventListener("click", function() {
                                                             triesLeft -= 1;
                                                             withdraw.innerHTML = anotherTry;
@@ -94,20 +99,12 @@ btnWithdraw.addEventListener("click", function() {
                                                             inpWithdraw = document.getElementById("inpWithdraw");
                                                             btnWithdraw = document.getElementById("btnWithdraw");
                                                             btnWithdraw.addEventListener("click", function() {
-                                                                money -= Number(inpWithdraw.value);
-                                                                if (money>=0)
+                                                                if (money >= inpWithdraw.value) {
+                                                                    money = Math.round((money - inpWithdraw.value)*100)/100;
                                                                     balance.textContent = `Баланс: ${money} RUB`;
+                                                                }
                                                                 else {
                                                                     withdraw.innerHTML = notEnoughMoney + `<p class="Withdraw">Осталось попыток: ${triesLeft}</p>`;
-                                                                    let btnNotEnoughMoney = document.getElementById("btnNotEnoughMoney");
-                                                                    btnNotEnoughMoney.addEventListener("click", function() {
-                                                                        triesLeft -= 1;
-                                                                        withdraw.innerHTML = anotherTry;
-                                                                        balance = document.getElementById("Balance");
-                                                                        withdraw = document.getElementById("Withdraw");
-                                                                        inpWithdraw = document.getElementById("inpWithdraw");
-                                                                        btnWithdraw = document.getElementById("btnWithdraw");
-                                                                    });
                                                                 }
                                                             });
                                                         });
