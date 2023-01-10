@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  font-family: "Arial";
+  text-align: center;
+}
+
+.hat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.hat img {
+  height: 50%;
+}
+.hypnosis {
+  transition: 100ms;
+}
