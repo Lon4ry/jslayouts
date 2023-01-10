@@ -3,8 +3,7 @@ function getRandomInt(min, max) {
 }
 
 function getRandomMessage(array) {
-    let ind = getRandomInt(0, array.length);
-    return array[ind];
+    return array[getRandomInt(0, array.length)];
 }
 
 let future = [
