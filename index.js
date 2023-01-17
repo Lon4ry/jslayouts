@@ -48,9 +48,7 @@ function refresh_template() {
   time = String(date.getHours()) + ":" + String(date.getMinutes());
 
   date = ` 
-  <div class="card-footer text-muted">
-  ${num + " " + month + " " + year + " " + time}
-  </div>`;
+  <div class="card-footer text-muted">${num} ${month} ${year} ${time}</div>`;
    
   
   if (date.indexOf("NaN") != -1)
@@ -76,17 +74,17 @@ let dateInput = document.getElementById(`date`);
 let notesNode = document.getElementById(`notes`);
 
 let notes = [];
-notes.
 
-saveButton.addEventListener("keypress", function() {
+saveButton.addEventListener("click", function() {
   refresh_template();
   notesNode.innerHTML += template;
   notes += [{
     'title': titleInput.value,
     'text': textInput.value,
     'category': categoryInput.value,
-    'date': dateInput.valueAsNumber
+    'date': dateInput.valueAsNumber,
   }];
+
 
   textInput.value = ``;
   titleInput.value = ``;
