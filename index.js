@@ -1,5 +1,6 @@
 let template = ``;
 function refresh_template() {
+  error = false;
   date = new Date(dateInput.value);
 
   num = String(date.getDate());
@@ -43,48 +44,63 @@ function refresh_template() {
     case '11':
       month = 'декабря';
       break;
+    default:
+      error = true;
   }
   year = String(date.getFullYear());
   time = String(date.getHours()) + ":" + String(date.getMinutes());
 
-  date = ` 
-  <div class="card-footer text-muted">${num} ${month} ${year} ${time}</div>`;
-   
-  
-  if (date.indexOf("NaN") != -1)
-    date = ``;
+  delete date;
 
-  template = `
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">${titleInput.value}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">${categoryInput.value}</h6>
-      <p class="card-text">${textInput.value}</p>
-    </div>
-   ${date}
-  </div>
-`;
+  date = `<div class="card-footer text-muted">${num} ${month} ${year} ${time}</div>`;
+
+  if (date.indexOf("NaN") != -1)
+    error = true;
+
+  if (error) {
+    alert("Ошибка");
+    template = ``;
+  }
+  else {
+    template = 
+    `<div class="card">
+      <div class="card-body">
+        <h5 class="card-title">${titleInput.value}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">${categoryInput.value}</h6>
+        <p class="card-text">${textInput.value.replaceAll('\n', "<br>")}</p>
+      </div>
+    ${date}
+    </div>`;
+  }
 }
 
-let saveButton = document.getElementById(`save`);
-let textInput = document.getElementById(`text`);
-let titleInput = document.getElementById(`title`);
-let categoryInput = document.getElementById(`category`);
-let dateInput = document.getElementById(`date`);
-let notesNode = document.getElementById(`notes`);
 
-let notes = [];
+let saveButton = document.querySelector(`#save`);
+let textInput = document.querySelector(`#text`);
+let titleInput = document.querySelector(`#title`);
+let categoryInput = document.querySelector(`#category`);
+let dateInput = document.querySelector(`#date`);
+let notesNode = document.querySelector(`#notes`);
+
+let notes = document.querySelectorAll(`.card`);
+
 
 saveButton.addEventListener("click", function() {
   refresh_template();
-  notesNode.innerHTML += template;
-  notes += [{
-    'title': titleInput.value,
-    'text': textInput.value,
-    'category': categoryInput.value,
-    'date': dateInput.valueAsNumber,
-  }];
-
+  if (template != ``) {
+    notesNode.innerHTML += template;
+    notes = document.querySelectorAll(`.card`);
+    switch (categoryInput.value) {
+      case "Срочное":
+        notes[notes.length-1].classList.add("immediate");
+      case "Учёба":
+        notes[notes.length-1].classList.add("study");
+      case 'Важное':
+        notes[notes.length-1].classList.add("important");
+      default:
+        notes[notes.length-1].classList.add("card");
+    }
+  }
 
   textInput.value = ``;
   titleInput.value = ``;
