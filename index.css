@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  font-family: "Arial";
+  text-align: center;
+  background-color: black;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  height: 100vh;
+}
+
+/* класс для просто звука */
+.sound {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* класс для выбранного звука */
+.active {
+  outline: 4px dotted yellow;
+  outline-offset: 4px;
+}
+
