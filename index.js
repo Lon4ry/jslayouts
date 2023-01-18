@@ -81,6 +81,7 @@ let titleInput = document.querySelector(`#title`);
 let categoryInput = document.querySelector(`#category`);
 let dateInput = document.querySelector(`#date`);
 let notesNode = document.querySelector(`#notes`);
+let wordCount = document.querySelector(`#word-count`)
 
 let notes = document.querySelectorAll(`.card`);
 
@@ -109,3 +110,19 @@ saveButton.addEventListener("click", function() {
   template = ``;
 });
 
+
+textInput.addEventListener('input', function() {
+    if (textInput.value.length > 140)
+        textInput.value = textInput.value.slice(0,140);
+    wordCount.textContent = `${textInput.value.length}/140`;
+});
+
+titleInput.addEventListener('input', function() {
+    if (titleInput.value.length > 40)
+        titleInput.value = titleInput.value.slice(0,40);
+});
+
+сategoryInput.addEventListener('input', function() {
+    if (сategoryInput.value.length > 40)
+    сategoryInput.value = сategoryInput.value.slice(0,40);
+});
