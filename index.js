@@ -14,19 +14,23 @@ let animalsDoc = {
     'text': document.querySelector('.text')
 };
 
-let timer = setInterval(function() {
-    if (animals.name.length != 0 || animals.path.length != 0) {
-        index = getRandomInt(0, animals.name.length);
-        animalsDoc.text.textContent = animals.name[index];
-        animalsDoc.image.src = animals.path[index];
-        animals.name.splice(index, 1);
-        animals.path.splice(index, 1);
+timer = setTimeout(function change() {
+    if (animals.name.length != 0) {
+        animalsDoc.text.textContent = 'Какое это животное?';
+        i = getRandomInt(0, animals.name.length);
+        setTimeout(function () {
+            animalsDoc.text.textContent = animals.name[i];
+            clearTimeout(self);
+            timer = setTimeout(change, latency/2);
+            animals.name.splice(i, 1);
+        }, latency/2)
+        animalsDoc.image.src = animals.path[i];
+        animals.path.splice(i, 1);
     }
-    else
-        clearInterval(timer);
-}, latency);
-
-setInterval(function () {
-    animalsDoc.text.textContent = `Конец`;
-    animalsDoc.image.src = `./assets/the-end.png`;
-}, latency*(animals.name.length+1));
+    else {
+        timer = setTimeout(function() {
+            animalsDoc.text.textContent = 'Конец';
+            animalsDoc.image.src = './assets/the-end.png';
+        }, latency/2);
+    }
+}, latency/2);
