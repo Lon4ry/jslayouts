@@ -10,6 +10,10 @@ body {
   align-items: center;
 }
 
+.game {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .spy {
   height: 100px;
   width: 100px;
