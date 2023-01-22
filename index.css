@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  font-family: "Arial";
+  text-align: center;
+  background-color: black;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 100px;
+}
+
+input, button {
+  height: 200px;
+  border: none;
+  font-size: 50px;
+  width: 200px;
+  text-align: center;
+}
+
+::placeholder {
+  color: white;
+}
+
+input {
+  background-color: rgb(51, 141, 250);
+  color: white;
+}
+
+button {
+  background-color: rgb(31, 199, 106);
+  color: white;
+  cursor: pointer;
+}
+.active {
+  outline: 4px dotted pink;
+  outline-offset: 4px;;
+}
+
+.group {
+  border-radius: 20px;
+  overflow: hidden;
+}
