@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title></title>
-        <link rel="stylesheet" href="./index.css">
-        <script src="./index.js" defer></script>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чеклист</title>
+
+
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js" defer></script>
+</head>
+<body>
+    
+    <main class="container-center">
+        <div class="container">
+            <h1>Чеклист</h1>
+
+            <div class="input-container">
+                <input class="new-todo" type="text" placeholder="Что ещё?">
+                <button class="add-button">+</button>
+
+            </div>
+
+            <ul class="list-container">
+                <!-- Здесь будут дела -->
+                <li class="todo"><span>Дело 1</span><button>X</button></li>
+                <li class="todo done"><span>Дело 2</span><button>X</button></li>
+            </ul>    
+        </div>
         
-    </body>
+    </main>
+</body>
 </html>
