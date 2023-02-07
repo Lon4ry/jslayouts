@@ -1,20 +1,28 @@
-let task = document.querySelector('.new-todo');
-let tasks_container = document.querySelector('.list-container');
-let tasks = document.querySelectorAll('.todo');
-let add_button = document.querySelector('.add-button');
+let newTask = document.querySelector('.new-todo');
+let tasksContainer = document.querySelector('.list-container');
+let addButton = document.querySelector('.add-button');
+let tasks = [
+  `Дело 1`,
+  `Дело 2`
+];
 
-add_button.addEventListener('click', function () {
-    tasks_container.innerHTML += `<li class="todo"><span>${task.value}</span><button>X</button></li>`;
-    tasks = document.querySelectorAll('.todo');
-    for (let task of tasks) {
-        task.querySelector('span').addEventListener('click', function() {
-            this.parentElement.classList.toggle('done');
-        });
-    }
+addButton.addEventListener('click', function () {
+    tasks.push(newTask.value);
+    renderTask(tasks.length-1);
 });
 
-for (let task of tasks) {
-    task.querySelector('span').addEventListener('click', function() {
-        this.parentElement.classList.toggle('done');
-    });
+function renderTask(i) {
+  let newTask = document.createElement('li');
+
+  newTask.classList.add('todo');
+  newTask.append(document.createElement('span'));
+  newTask.querySelector('span').textContent = tasks[i];
+  newTask.append(document.createElement('button'));
+  newTask.querySelector('button').textContent = 'X';
+
+  newTask.addEventListener('click', function() {
+    this.classList.toggle('done');
+  })
+
+  tasksContainer.append(newTask);
 }
