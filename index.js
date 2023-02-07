@@ -6,6 +6,9 @@ let tasks = [
   `Дело 2`
 ];
 
+for (let i = 0; i < tasks.length; i++)
+  renderTask(i);
+
 addButton.addEventListener('click', function () {
     tasks.push(newTask.value);
     renderTask(tasks.length-1);
@@ -23,6 +26,9 @@ function renderTask(i) {
   newTask.addEventListener('click', function() {
     this.classList.toggle('done');
   })
+  newTask.querySelector('button').addEventListener('click', function () {
+    newTask.remove();
+  });
 
   tasksContainer.append(newTask);
 }
