@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial';
+    font-size: 14px;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+
+    padding: 80px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.pokemon-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+
+.card {
+    max-width: 300px;
+    min-width: 150px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    padding: 8px;
+    position: relative;
+    cursor: pointer;
+}
+
+.images {
+    text-align: center;
+}
+.avatar {
+    width: 80%;
+}
+
+.card-title {
+    text-align: center;
+    font-size: 20px;
+}
+
+.heart {
+    display: block;
+    color: red;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    visibility: hidden;
+}
+
+.card_like .heart {
+    visibility: visible;
+}
