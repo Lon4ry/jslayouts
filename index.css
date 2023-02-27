@@ -1,0 +1,59 @@
+body {
+    font-family: 'Arial';
+}
+
+
+
+p, h5 {
+    margin: 0;
+}
+
+.menu,
+.orders-container,
+.order-form {
+    margin: 20px;
+}
+
+.menu-container,
+.orders-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.menu-item,
+.order-item {
+    width: 100px;
+    border: 2px solid pink;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+
+.order-item img,
+.menu-item img {
+    width: 50%;
+}
+
+.order-item {
+    cursor: poiner;
+    user-select: none;
+}
+
+.order-item p {
+    font-size: 10px;;
+}
+
+.new {
+    background-color: lightgrey;
+}
+
+.cook {
+    background-color: lightpink;
+}
+
+.ready {
+    background-color: lightgreen;
+}
