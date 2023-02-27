@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title></title>
-        <link rel="stylesheet" href="./index.css">
-        <script src="./index.js" defer></script>
-    </head>
-    <body>
-        
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Сумка Гермионы</title>
+
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./index.js" defer></script>
+  </head>
+
+  <body>
+    <div class="container">
+
+      <!-- Поиск -->
+      <div class="search-container">
+        <div class="search-row">
+          <span>Акцио,</span>
+          <input class="search" id="search" type="text" autocomplete="off">
+          <button class="search-start" type="button">Искать</button>
+          <button class="search-finish" type="button">Начать с начала</button>
+        </div>
+
+        <div class="feedback_valid">
+          Лови!
+        </div>
+        <div class="feedback_invalid">
+          Увы, такого предмета в сумке нет
+        </div>
+      </div>
+
+      <div class="bag-container">
+        <!-- Здесь будет содержимое сумки -->
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
