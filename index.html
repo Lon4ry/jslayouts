@@ -1,14 +1,28 @@
 <!DOCTYPE html>
-<html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title></title>
-        <link rel="stylesheet" href="./index.css">
-        <script src="./index.js" defer></script>
-    </head>
-    <body>
-        
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход на сайт</title>
+    <script src="./index.js" defer></script>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="login-page hidden">
+        <h1>Представьтесь, пожалуйста:</h1>
+        <input type="text" class="username">
+        <button>Войти</button>
+    </div>
+
+    <div class="welcome-page hidden">
+        <h1>Добро пожаловать, <span></span>!</h1>
+        <button>Выйти</button>
+        <div>
+            <textarea id="message"></textarea>
+            <button id="send">Отправить</button>
+            <div class="messages"></div>
+        </div>
+    </div>
+</body>
 </html>
