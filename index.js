@@ -37,9 +37,7 @@ function render() {
         let messages = !JSON.parse(localStorage.getItem('messages')) ? []:JSON.parse(localStorage.getItem('messages'));
         for (let i = 0; i < messages.length; i++) {
             messages[i] = new Message(messages[i].author, messages[i].text);
-            if (messages[i].author === username) {
-                messages[i].render(container);
-            }
+            messages[i].render(container);
         }
     }
 }
