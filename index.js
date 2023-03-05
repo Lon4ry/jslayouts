@@ -42,17 +42,27 @@ class Order {
             <h5>${this.title}</h5>
             <p>Заказ #${this.id} создан</p>
         `
-        newOrder.addEventListener('click', () => this.onClick());
         this.htmlElement = newOrder;
+        newOrder.addEventListener('click', () => this.onClick());
+
+        setTimeout(() => {
+            if (document.querySelectorAll('.order-item.cook').length < 4)
+                this.cook();
+            else {
+                let interval = setInterval(() => {
+                    if (document.querySelectorAll('.order-item.cook').length < 4) {
+                        this.cook();
+                        clearInterval(interval);
+                    }
+                }, 1000);
+            }
+        }, getRandomInt(3000, 10000));
+
         container.append(newOrder);
     }
 
     onClick() {
-        if (this.state == 'new')
-            this.cook();
-        else if (this.state == 'cook')
-            this.ready();
-        else if (this.state == 'ready')
+        if (this.state == 'ready')
             this.htmlElement.remove();
     }
 
@@ -61,6 +71,9 @@ class Order {
         this.htmlElement.classList.add('cook');
         this.htmlElement.classList.remove('new');
         this.htmlElement.querySelector('p').textContent = `Заказ #${this.id} готовится`;
+        setTimeout(() => {
+            this.ready();
+        }, getRandomInt(10000, 30000));
     }
 
     ready () {
