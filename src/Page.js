@@ -35,6 +35,7 @@ class Page {
 
             let button = document.createElement('button');
             button.textContent = movie.title;
+            button.classList.add('movie');
             button.addEventListener('click', () => {
                 movie.render();
                 this.id = i;

@@ -1,11 +1,11 @@
 // Класс для управления заказом билета
 
 class Ticket {
-    constructor(row, col) {
+    constructor(row, col, status = 'empty') {
         this.row = row;
         this.col = col;
 
-        this.status = 'empty';
+        this.status = status;
     }
 
     render () {
@@ -14,11 +14,12 @@ class Ticket {
         this.node.textContent = `${this.row}-${this.col}`
         if (this.status === 'selected') 
             this.selected();
+        if (this.status === 'ordered')
+            this.order();
         this.node.addEventListener('click', () => {
-            if (this.status === 'empty') {
+            if (this.status === 'empty') 
                 this.selected();
-            }
-            else 
+            else if (this.status === 'selected')
                 this.empty();
         });
         TICKETS_NODE.append(this.node);
@@ -38,5 +39,15 @@ class Ticket {
         this.node.classList.add('ticket_empty');
         this.node.classList.remove('ticket_selected');
         this.paragraph.remove();
+    }
+
+    order() {
+        if (this.status === 'selected' || this.status === 'ordered') {
+            this.status = 'ordered';
+            this.node.classList.add('ticket_ordered');
+            this.node.classList.remove('ticket_selected');
+            this.node.classList.remove('ticket_empty');
+            return true;
+        }
     }
 }
